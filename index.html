@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RailSetu — Coach & Fare Finder</title>
+</head>
+<body>
+<header>
+    <h1>RailSetu</h1>
+    <nav>
+        <a href="#coach">Coach</a>
+        <a href="#fare">Fare</a>
+    </nav>
+</header>
+
+<main>
+    <h2> Welcome to RailSetu </h2>
+    <p>Know exactly where your coach stops, and what your trip costs</p>
+
+    <section id="coach">
+        <h2>Find your coach</h2>
+        <label for="train-number">Train number</label>
+        <input id="train-number" type="text" placeholder="eg: 12952">
+
+        <label for="coach-number">Coach number</label>
+        <input id="coach-number" type="text" placeholder="eg: H1">
+
+        <button>Find coach</button>
+    </section>
+
+    <section id="fare">
+        <h2>Calculate fare</h2>
+        <p>Get total fare breakdown</p>
+        <p>Select your source and destination</p>
+
+        <label for="from">From</label>
+        <input type="text" id="from" placeholder="Mumbai">
+
+        <label for="to">To</label>
+        <input type="text" id="to" placeholder="Delhi">
+
+        <label for="travel-class">Select your travelling class</label>
+        <select id="travel-class">
+            <option value="ac3">AC 3 Tier</option>
+            <option value="ac2">AC 2 Tier</option>
+            <option value="ac1">AC 1 Tier</option>
+        </select>
+    </section>
+</main>
+<footer>
+    <p> RailSetu 2026</p>
+</footer>
+</body>
+</html>
