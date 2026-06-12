@@ -2,53 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RailSetu — Coach & Fare Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailSetu — Track Your Train</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
     <h1>RailSetu</h1>
     <nav>
-        <a href="#coach">Coach</a>
+        <a href="#track">Track</a>
         <a href="#fare">Fare</a>
     </nav>
 </header>
 
 <main>
-    <h2> Welcome to RailSetu </h2>
-    <p>Know exactly where your coach stops, and what your trip costs</p>
 
-    <section id="coach">
-        <h2>Find your coach</h2>
+    <section id="track" class="card">
+
+        <div class="card-head">
+            <h2>Track your train</h2>
+            <p class="subtitle">Real-time running status</p>
+        </div>
+
         <label for="train-number">Train number</label>
-        <input id="train-number" type="text" placeholder="eg: 12952">
+        <input id="train-number" type="text" placeholder="eg: 12951">
 
-        <label for="coach-number">Coach number</label>
-        <input id="coach-number" type="text" placeholder="eg: H1">
+        <label for="departure-date">Departure date</label>
+        <input id="departure-date" type="date">
 
-        <button>Find coach</button>
+        <button id="track-btn">Check live status</button>
+
+        <div id="track-result" class="result">
+
+            <div class="result-top">
+                <div>
+                    <p class="train-name" id="train-name">Train number</p>
+                    <p class="train-route" id="train-route">Source → Destination</p>
+                </div>
+                <span id="status-badge" class="badge badge-ontime">Status</span>
+            </div>
+
+            <p id="delay-info" class="delay-info">Enter train number and date</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <p class="info-label">Currently at</p>
+                    <p class="info-value" id="current-station">—</p>
+                </div>
+                <div class="info-card">
+                    <p class="info-label">Next stop</p>
+                    <p class="info-value" id="next-station">—</p>
+                    <p class="info-sub" id="next-time"></p>
+                </div>
+            </div>
+
+            <div class="updated-note" id="updated-note">Last updated —</div>
+
+        </div>
     </section>
 
-    <section id="fare">
-        <h2>Calculate fare</h2>
-        <p>Get total fare breakdown</p>
-        <p>Select your source and destination</p>
+    <section id="fare" class="card">
+        <div class="card-head">
+            <h2>Calculate fare</h2>
+            <p class="subtitle">Estimate fare for the tracked train</p>
+        </div>
 
-        <label for="from">From</label>
-        <input type="text" id="from" placeholder="Mumbai">
+        <p id="fare-hint" class="delay-info">Check a train's status first to load its stations</p>
 
-        <label for="to">To</label>
-        <input type="text" id="to" placeholder="Delhi">
+        <div class="fare-row">
+            <div>
+                <label for="from">From</label>
+                <select id="from">
+                    <option value="">Select station</option>
+                </select>
+            </div>
+            <div>
+                <label for="to">To</label>
+                <select id="to">
+                    <option value="">Select station</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="travel-class">Select your travelling class</label>
+        <label for="travel-class">Travel class</label>
         <select id="travel-class">
-            <option value="ac3">AC 3 Tier</option>
-            <option value="ac2">AC 2 Tier</option>
-            <option value="ac1">AC 1 Tier</option>
+            <option value="sleeper">Sleeper (SL)</option>
+            <option value="ac3">AC 3 Tier (3A)</option>
+            <option value="ac2">AC 2 Tier (2A)</option>
         </select>
+
+        <button id="fare-btn">Calculate fare</button>
+
+        <div id="fare-result" class="result" style="display:none;">
+            <div class="result-top">
+                <div>
+                    <p class="train-name" id="fare-route">Route</p>
+                    <p class="train-route" id="fare-class">Class</p>
+                </div>
+                <span class="badge badge-early" id="fare-amount">₹0</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <p class="info-label">Distance</p>
+                    <p class="info-value" id="fare-distance">—</p>
+                </div>
+                <div class="info-card">
+                    <p class="info-label">Estimated fare</p>
+                    <p class="info-value" id="fare-value">—</p>
+                </div>
+            </div>
+            <div class="updated-note">Approximate estimate based on distance</div>
+        </div>
     </section>
+
 </main>
+
 <footer>
-    <p> RailSetu 2026</p>
+    <p>Made by Ujesh · RailSetu 2026</p>
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
